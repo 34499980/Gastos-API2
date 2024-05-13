@@ -1,5 +1,5 @@
-import { Due } from "../models/DuesModel";
-import { Item } from "../models/ItemModel";
+import { Due } from "../models/duesmodel";
+import { Item } from "../models/itemmodel";
 
 
 const table = 'Type';

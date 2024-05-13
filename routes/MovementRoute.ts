@@ -5,7 +5,7 @@ import express from 'express';
 const app = express();
 const router = express.Router();
 // Cargamos el controlador
-import * as Controller from '../controllers/MovementController';
+import * as Controller from '../controllers/movementcontroller';
  
 // Llamamos al router
 

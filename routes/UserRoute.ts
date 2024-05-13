@@ -5,7 +5,7 @@ import express from 'express';
 const app = express();
 const router = express.Router();
 // Cargamos el controlador
-import * as Controller from '../controllers/UserController';
+import * as Controller from '../controllers/usercontroller';
  
 // Llamamos al router
 

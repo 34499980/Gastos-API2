@@ -5,7 +5,7 @@ import express from 'express';
 const app = express();
 const router = express.Router();
 // Cargamos el controlador
-import * as Controller from '../controllers/DataSourceController';
+import * as Controller from '../controllers/datasourcecontroller';
  
 // Llamamos al router
 

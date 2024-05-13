@@ -1,4 +1,4 @@
-import { Item } from '../models/ItemModel';
+import { Item } from '../models/itemmodel';
 import * as service from  '../services/TypeService';
 import {StatusCodes} from 'http-status-codes';
 import * as helper from '../helpers/Time';

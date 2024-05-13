@@ -1,5 +1,5 @@
-import { Category } from "../models/CategoryModel";
-import { User } from "../models/UserModel";
+import { Category } from "../models/categorymodel";
+import { User } from "../models/usermodel";
 
 const table = 'User';
  //const admin = require('firebase-admin')

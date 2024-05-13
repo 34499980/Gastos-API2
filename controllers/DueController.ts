@@ -1,8 +1,8 @@
-import { Due } from '../models/DuesModel';
+import { Due } from '../models/duesmodel';
 import * as service from  '../services/DueService';
 import * as movementService from  '../services/MovementService';
 import {StatusCodes} from 'http-status-codes';
-import { Movement } from '../models/MovementModel';
+import { Movement } from '../models/movementmodel';
 import * as helper from '../helpers/Time';
 const res = require('express/lib/response');
 

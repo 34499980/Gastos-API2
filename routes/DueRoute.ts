@@ -5,7 +5,7 @@ import express from 'express';
 const app = express();
 const router = express.Router();
 // Cargamos el controlador
-import * as Controller from '../controllers/DueController';
+import * as Controller from '../controllers/duecontroller';
  
 // Llamamos al router
 

@@ -1,11 +1,11 @@
-import { User } from '../models/UserModel';
+import { User } from '../models/usermodel';
 import * as service from  '../services/TotalService';
 import * as movementService from  '../services/MovementService';
 import * as dueService from  '../services/DueService';
 import {StatusCodes} from 'http-status-codes';
 import * as helper from '../helpers/Time';
 import { Type } from '../enums/type';
-import { Total } from '../models/TotalModal';
+import { Total } from '../models/totalmodal';
 
 const res = require('express/lib/response');
 

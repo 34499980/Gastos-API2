@@ -11,15 +11,15 @@ app.use(function (req, res, next) {
 });
 app.use(express.json());
 var port = process.env.PORT || 8080; // establecemos nuestro puerto
-var category_routes = require('../API/routes/CategoryRoute');
-var user_routes = require('../API/routes/UserRoute');
-var movement_routes = require('../API/routes/MovementRoute');
-var type_routes = require('../API/routes/TypeRoute');
-var due_routes = require('../API/routes/DueRoute');
-var total_routes = require('../API/routes/TotalRoute');
-var test_routes = require('../API/routes/TestRoute');
-var dataSource_routes = require('../API/routes/DataSourceRoute');
-var image_routes = require('../API/routes/ImageRoute');
+var category_routes = require('./routes/CategoryRoute');
+var user_routes = require('./routes/UserRoute');
+var movement_routes = require('./routes/MovementRoute');
+var type_routes = require('./routes/TypeRoute');
+var due_routes = require('./routes/DueRoute');
+var total_routes = require('./routes/TotalRoute');
+var test_routes = require('./routes/TestRoute');
+var dataSource_routes = require('./routes/DataSourceRoute');
+var image_routes = require('./routes/ImageRoute');
 //app.use(bodyParser.urlencoded({extended:false}));
 //app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: false }));

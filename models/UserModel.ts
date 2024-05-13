@@ -1,4 +1,4 @@
-import { Auditory } from "./AuditoryModel";
+import { Auditory } from "./auditorymodel";
 
 export interface User extends Auditory {
     key: string;

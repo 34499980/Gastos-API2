@@ -1,4 +1,4 @@
-import { Category } from "../models/CategoryModel";
+import { Category } from "../models/categorymodel";
 
 const table = 'Category';
  //const admin = require('firebase-admin')

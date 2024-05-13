@@ -1,4 +1,4 @@
-import { Movement } from "../models/MovementModel";
+import { Movement } from "../models/movementmodel";
 
 
 const table = 'Movement';

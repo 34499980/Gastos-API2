@@ -1,11 +1,11 @@
-import { User } from '../models/UserModel';
+import { User } from '../models/usermodel';
 import * as service from  '../services/ImageService';
 import * as ImageService from  '../services/ImageService';
 import {StatusCodes} from 'http-status-codes';
-import { Movement } from '../models/MovementModel';
-import { Due } from '../models/DuesModel';
+import { Movement } from '../models/movementmodel';
+import { Due } from '../models/duesmodel';
 import * as helper from '../helpers/Time';
-import { Item } from '../models/ItemModel';
+import { Item } from '../models/itemmodel';
 const res = require('express/lib/response');
 
 export async function add(req, res){   

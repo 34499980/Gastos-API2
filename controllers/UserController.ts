@@ -1,4 +1,4 @@
-import { User } from '../models/UserModel';
+import { User } from '../models/usermodel';
 import * as service from  '../services/UserService';
 import {StatusCodes} from 'http-status-codes';
 import * as helper from '../helpers/Time';

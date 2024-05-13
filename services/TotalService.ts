@@ -1,5 +1,5 @@
 
-import { Total } from "../models/TotalModal";
+import { Total } from "../models/totalmodal";
 
 const table = 'Total';
  //const admin = require('firebase-admin')

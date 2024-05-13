@@ -1,4 +1,4 @@
-import { Auditory } from "./AuditoryModel";
+import { Auditory } from "./auditorymodel";
 
 export interface Category extends Auditory {
     key: string;

@@ -1,5 +1,5 @@
-import { Auditory } from "./AuditoryModel";
-import { Due } from "./DuesModel";
+import { Auditory } from "./auditorymodel";
+import { Due } from "./duesmodel";
 
 export interface Movement extends Auditory{
     key: string;

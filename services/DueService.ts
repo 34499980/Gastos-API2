@@ -1,5 +1,5 @@
-import { Due } from "../models/DuesModel";
-import { Movement } from "../models/MovementModel";
+import { Due } from "../models/duesmodel";
+import { Movement } from "../models/movementmodel";
 
 
 const table = 'Due';

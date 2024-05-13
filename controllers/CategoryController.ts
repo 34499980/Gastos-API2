@@ -1,4 +1,4 @@
-import { Category } from '../models/CategoryModel';
+import { Category } from '../models/categorymodel';
 import * as service from  '../services/CategoryService';
 import {StatusCodes} from 'http-status-codes';
 //var service = require('../services/CategoryService');
