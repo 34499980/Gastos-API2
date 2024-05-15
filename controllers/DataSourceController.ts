@@ -2,7 +2,7 @@
 import { StatusCodes } from 'http-status-codes';
 import * as helper from '../helpers/Time';
 const res = require('express/lib/response');
-import * as service from  '../services/DataSourceService';
+import * as service from  '../services/datasourceservice';
 
 export async function getCategories(req, res){
     let list = await service.getCategories()

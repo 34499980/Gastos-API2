@@ -33,8 +33,8 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getById = exports.getByMonth = exports.getAllYears = exports.remove = exports.edit = exports.add = void 0;
-const service = __importStar(require("../services/MovementService"));
-const duesService = __importStar(require("../services/DueService"));
+const service = __importStar(require("../services/movementservice"));
+const duesService = __importStar(require("../services/dueservice"));
 const http_status_codes_1 = require("http-status-codes");
 const helper = __importStar(require("../helpers/Time"));
 const res = require('express/lib/response');
@@ -122,7 +122,14 @@ function edit(req, res) {
 exports.edit = edit;
 function remove(req, res) {
     return __awaiter(this, void 0, void 0, function* () {
-        const dbEntity = yield service.getById(req.body.key);
+        let key = {};
+        if (req.body.month == undefined) {
+            key = req.query.key;
+        }
+        else {
+            key = req.body.key;
+        }
+        const dbEntity = yield service.getById(key);
         if (dbEntity.dueBool) {
             const due = yield duesService.getByMovementId(dbEntity.key);
             yield duesService.remove(due);

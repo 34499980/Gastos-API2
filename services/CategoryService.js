@@ -61,9 +61,9 @@ function edit(req) {
     });
 }
 exports.edit = edit;
-function remove(req) {
+function remove(key) {
     return __awaiter(this, void 0, void 0, function* () {
-        yield db.collection(table).doc(req.body.key).delete();
+        yield db.collection(table).doc(key).delete();
     });
 }
 exports.remove = remove;
@@ -79,9 +79,9 @@ function getAll() {
     });
 }
 exports.getAll = getAll;
-function getById(req) {
+function getById(key) {
     return __awaiter(this, void 0, void 0, function* () {
-        return yield db.collection(table).doc(req.body.key).get().then(snap => {
+        return yield db.collection(table).doc(key).get().then(snap => {
             return snap.data();
         });
     });
@@ -107,4 +107,4 @@ module.exports = {
     getByName,
     getById
 };
-//# sourceMappingURL=CategoryService.js.map
+//# sourceMappingURL=categoryservice.js.map

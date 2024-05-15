@@ -1,6 +1,6 @@
 import { User } from '../models/usermodel';
-import * as service from  '../services/ImageService';
-import * as ImageService from  '../services/ImageService';
+import * as service from  '../services/imageservice';
+import * as ImageService from  '../services/imageservice';
 import {StatusCodes} from 'http-status-codes';
 import { Movement } from '../models/movementmodel';
 import { Due } from '../models/duesmodel';

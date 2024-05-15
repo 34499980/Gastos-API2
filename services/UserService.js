@@ -111,4 +111,4 @@ module.exports = {
     getByName,
     getById
 };
-//# sourceMappingURL=UserService.js.map
+//# sourceMappingURL=userservice.js.map

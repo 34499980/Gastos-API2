@@ -33,7 +33,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getByIdPrivate = exports.getById = exports.getByName = exports.getByNamePrivate = exports.getAll = exports.remove = exports.edit = exports.add = void 0;
-const service = __importStar(require("../services/UserService"));
+const service = __importStar(require("../services/userservice"));
 const http_status_codes_1 = require("http-status-codes");
 const helper = __importStar(require("../helpers/Time"));
 const res = require('express/lib/response');

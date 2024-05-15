@@ -1,5 +1,5 @@
 import { User } from '../models/usermodel';
-import * as service from  '../services/UserService';
+import * as service from  '../services/userservice';
 import {StatusCodes} from 'http-status-codes';
 import * as helper from '../helpers/Time';
 const res = require('express/lib/response');

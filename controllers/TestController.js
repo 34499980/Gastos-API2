@@ -33,8 +33,8 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AddMovement = void 0;
-const movementService = __importStar(require("../services/MovementService"));
-const dueService = __importStar(require("../services/DueService"));
+const movementService = __importStar(require("../services/movementservice"));
+const dueService = __importStar(require("../services/dueservice"));
 const http_status_codes_1 = require("http-status-codes");
 const helper = __importStar(require("../helpers/Time"));
 const res = require('express/lib/response');

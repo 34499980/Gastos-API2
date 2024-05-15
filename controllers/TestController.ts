@@ -1,6 +1,6 @@
 import { User } from '../models/usermodel';
-import * as movementService from  '../services/MovementService';
-import * as dueService from  '../services/DueService';
+import * as movementService from  '../services/movementservice';
+import * as dueService from  '../services/dueservice';
 import {StatusCodes} from 'http-status-codes';
 import * as helper from '../helpers/Time';
 import { Type } from '../enums/type';

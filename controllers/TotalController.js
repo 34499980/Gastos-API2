@@ -33,9 +33,9 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getByMonth = exports.getById = exports.getAll = exports.removeOldDues = exports.removeByMonths = exports.processTotals = void 0;
-const service = __importStar(require("../services/TotalService"));
-const movementService = __importStar(require("../services/MovementService"));
-const dueService = __importStar(require("../services/DueService"));
+const service = __importStar(require("../services/totalservice"));
+const movementService = __importStar(require("../services/movementservice"));
+const dueService = __importStar(require("../services/dueservice"));
 const http_status_codes_1 = require("http-status-codes");
 const helper = __importStar(require("../helpers/Time"));
 const type_1 = require("../enums/type");

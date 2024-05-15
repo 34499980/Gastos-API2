@@ -35,7 +35,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.getTypes = exports.getImages = exports.getCategories = void 0;
 const http_status_codes_1 = require("http-status-codes");
 const res = require('express/lib/response');
-const service = __importStar(require("../services/DataSourceService"));
+const service = __importStar(require("../services/datasourceservice"));
 function getCategories(req, res) {
     return __awaiter(this, void 0, void 0, function* () {
         let list = yield service.getCategories();

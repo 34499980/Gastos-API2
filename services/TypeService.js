@@ -70,4 +70,4 @@ module.exports = {
     getAll,
     getById
 };
-//# sourceMappingURL=TypeService.js.map
+//# sourceMappingURL=typeservice.js.map

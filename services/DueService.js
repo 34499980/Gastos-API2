@@ -90,4 +90,4 @@ module.exports = {
     getByMovementId,
     getAllWithMovement
 };
-//# sourceMappingURL=DueService.js.map
+//# sourceMappingURL=dueservice.js.map

@@ -1,5 +1,5 @@
 import { Category } from '../models/categorymodel';
-import * as service from  '../services/CategoryService';
+import * as service from  '../services/categoryservice';
 import {StatusCodes} from 'http-status-codes';
 //var service = require('../services/CategoryService');
 import * as helper from '../helpers/Time';
@@ -58,9 +58,17 @@ export async function edit(req, res){
    
  }
  export async function remove(req, res){
-    const dbEntity = await getByIdPrivate(req, res)      
+    let key = ''; 
+    
+    if(req.body.key == undefined){
+        key = req.query.key;
+   } else {
+         key = req.body.key;
+   }
+    const dbEntity = await getByIdPrivate(key, res)     
+   
         if(dbEntity){
-            service.remove(req);
+            service.remove(key);
            
         }
         res.status(200).send({
@@ -83,8 +91,8 @@ export async function getById(req, res){
     let entity = await service.getById(req)
     res.status(StatusCodes.ACCEPTED).json(entity);
  }
- export async function getByIdPrivate(req, res){
-    return await service.getById(req)
+ export async function getByIdPrivate(key, res){
+    return await service.getById(key)
     
  }
  

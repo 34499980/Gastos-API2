@@ -121,4 +121,4 @@ module.exports = {
     getById,
     getByMonth
 };
-//# sourceMappingURL=TotalService.js.map
+//# sourceMappingURL=totalservice.js.map

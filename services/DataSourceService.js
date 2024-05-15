@@ -68,4 +68,4 @@ module.exports = {
     getImages,
     getTypes
 };
-//# sourceMappingURL=DataSourceService.js.map
+//# sourceMappingURL=datasourceservice.js.map

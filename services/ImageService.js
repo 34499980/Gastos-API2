@@ -41,4 +41,4 @@ module.exports = {
     add,
     edit
 };
-//# sourceMappingURL=ImageService.js.map
+//# sourceMappingURL=imageservice.js.map

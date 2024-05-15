@@ -1,6 +1,6 @@
 import { Due } from '../models/duesmodel';
-import * as service from  '../services/DueService';
-import * as movementService from  '../services/MovementService';
+import * as service from  '../services/dueservice';
+import * as movementService from  '../services/movementservice';
 import {StatusCodes} from 'http-status-codes';
 import { Movement } from '../models/movementmodel';
 import * as helper from '../helpers/Time';

@@ -33,7 +33,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.edit = exports.add = void 0;
-const service = __importStar(require("../services/ImageService"));
+const service = __importStar(require("../services/imageservice"));
 const http_status_codes_1 = require("http-status-codes");
 const res = require('express/lib/response');
 function add(req, res) {

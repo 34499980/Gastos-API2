@@ -1,5 +1,5 @@
 import { Item } from '../models/itemmodel';
-import * as service from  '../services/TypeService';
+import * as service from  '../services/typeservice';
 import {StatusCodes} from 'http-status-codes';
 import * as helper from '../helpers/Time';
 const res = require('express/lib/response');

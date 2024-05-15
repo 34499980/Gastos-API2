@@ -33,7 +33,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getByIdPrivate = exports.getById = exports.getByName = exports.getByNamePrivate = exports.getAll = exports.remove = exports.edit = exports.add = void 0;
-const service = __importStar(require("../services/CategoryService"));
+const service = __importStar(require("../services/categoryservice"));
 const http_status_codes_1 = require("http-status-codes");
 //var service = require('../services/CategoryService');
 const helper = __importStar(require("../helpers/Time"));
@@ -93,10 +93,16 @@ function edit(req, res) {
 exports.edit = edit;
 function remove(req, res) {
     return __awaiter(this, void 0, void 0, function* () {
-        const dbEntity = yield getByIdPrivate(req, res);
-        console.log(dbEntity);
+        let key = '';
+        if (req.body.key == undefined) {
+            key = req.query.key;
+        }
+        else {
+            key = req.body.key;
+        }
+        const dbEntity = yield getByIdPrivate(key, res);
         if (dbEntity) {
-            service.remove(req);
+            service.remove(key);
         }
         res.status(200).send({
             menssage: 'Se elimino la categoria: ' + dbEntity.name
@@ -132,9 +138,9 @@ function getById(req, res) {
     });
 }
 exports.getById = getById;
-function getByIdPrivate(req, res) {
+function getByIdPrivate(key, res) {
     return __awaiter(this, void 0, void 0, function* () {
-        return yield service.getById(req);
+        return yield service.getById(key);
     });
 }
 exports.getByIdPrivate = getByIdPrivate;

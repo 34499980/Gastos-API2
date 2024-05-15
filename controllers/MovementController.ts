@@ -1,6 +1,6 @@
 import { User } from '../models/usermodel';
-import * as service from  '../services/MovementService';
-import * as duesService from  '../services/DueService';
+import * as service from  '../services/movementservice';
+import * as duesService from  '../services/dueservice';
 import {StatusCodes} from 'http-status-codes';
 import { Movement } from '../models/movementmodel';
 import { Due } from '../models/duesmodel';
@@ -88,7 +88,13 @@ export async function edit(req, res){
     }
 }
  export async function remove(req, res){
-    const dbEntity = await service.getById(req.body.key);
+    let key = {};   
+    if(req.body.month == undefined){
+        key =  req.query.key;
+    } else {
+        key = req.body.key;
+    }
+    const dbEntity = await service.getById(key);
     if(dbEntity.dueBool){
        const due = await duesService.getByMovementId(dbEntity.key);
        await duesService.remove(due);

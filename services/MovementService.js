@@ -121,4 +121,4 @@ module.exports = {
     getById,
     getMinorMonth
 };
-//# sourceMappingURL=MovementService.js.map
+//# sourceMappingURL=movementservice.js.map

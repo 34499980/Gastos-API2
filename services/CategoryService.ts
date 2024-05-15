@@ -63,8 +63,8 @@ export async function edit(req): Promise<void>{
                          })
      
     }
-export async function remove(req){
-     await db.collection(table).doc(req.body.key).delete();
+export async function remove(key){
+     await db.collection(table).doc(key).delete();
     }
 export async function getAll(): Promise<Category[]>{
     let list: Category[] = [];
@@ -77,9 +77,9 @@ export async function getAll(): Promise<Category[]>{
     });  
     
 }
-export async function getById(req): Promise<Category>{
+export async function getById(key): Promise<Category>{
     
-     return await db.collection(table).doc(req.body.key).get().then(snap => {
+     return await db.collection(table).doc(key).get().then(snap => {
         return snap.data()
     });     
  }   
