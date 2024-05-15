@@ -8,7 +8,7 @@
       "moduleResolution": "node",
       "noEmitOnError": true,
       "noImplicitAny": false,
-      "outDir": "./",
+      "outDir": "../wwwroot/app/",
       "removeComments": false,
       "esModuleInterop": true,
       "sourceMap": true,
