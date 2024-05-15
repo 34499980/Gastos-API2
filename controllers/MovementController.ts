@@ -94,13 +94,14 @@ export async function edit(req, res){
     } else {
         key = req.body.key;
     }
+    console.log(key);
     const dbEntity = await service.getById(key);
     if(dbEntity.dueBool){
        const due = await duesService.getByMovementId(dbEntity.key);
        await duesService.remove(due);
     }
     if(dbEntity != undefined) {
-        service.remove(req)
+        service.remove(key)
         res.status(StatusCodes.ACCEPTED).send({
             menssage: 'Se elimino el movimiento'
         });

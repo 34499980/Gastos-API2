@@ -54,9 +54,9 @@ function edit(req) {
     });
 }
 exports.edit = edit;
-function remove(req) {
+function remove(key) {
     return __awaiter(this, void 0, void 0, function* () {
-        yield db.collection(table).doc(req.key).delete();
+        yield db.collection(table).doc(key).delete();
     });
 }
 exports.remove = remove;
@@ -72,9 +72,9 @@ function getAllYears() {
     });
 }
 exports.getAllYears = getAllYears;
-function getById(req) {
+function getById(key) {
     return __awaiter(this, void 0, void 0, function* () {
-        return yield db.collection(table).doc(req.key).get().then(snap => {
+        return yield db.collection(table).doc(key).get().then(snap => {
             return snap.data();
         });
     });

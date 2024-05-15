@@ -56,8 +56,8 @@ export async function edit(req): Promise<void>{
                          })
      
     }
-export async function remove(req){
-     await db.collection(table).doc(req.key).delete();
+export async function remove(key){
+     await db.collection(table).doc(key).delete();
     }
 export async function getAllYears(): Promise<Movement[]>{
     let list: Movement[] = [];
@@ -70,9 +70,9 @@ export async function getAllYears(): Promise<Movement[]>{
     });  
     
 }
-export async function getById(req): Promise<Movement>{  
+export async function getById(key): Promise<Movement>{  
    
-     return await db.collection(table).doc(req.key).get().then(snap => {
+     return await db.collection(table).doc(key).get().then(snap => {
         return snap.data()
     });     
  }   

@@ -129,13 +129,14 @@ function remove(req, res) {
         else {
             key = req.body.key;
         }
+        console.log(key);
         const dbEntity = yield service.getById(key);
         if (dbEntity.dueBool) {
             const due = yield duesService.getByMovementId(dbEntity.key);
             yield duesService.remove(due);
         }
         if (dbEntity != undefined) {
-            service.remove(req);
+            service.remove(key);
             res.status(http_status_codes_1.StatusCodes.ACCEPTED).send({
                 menssage: 'Se elimino el movimiento'
             });
