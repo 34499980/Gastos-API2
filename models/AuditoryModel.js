@@ -4,3 +4,4 @@ exports.Auditory = void 0;
 class Auditory {
 }
 exports.Auditory = Auditory;
+//# sourceMappingURL=auditorymodel.js.map

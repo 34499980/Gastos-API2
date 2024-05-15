@@ -94,6 +94,7 @@ exports.edit = edit;
 function remove(req, res) {
     return __awaiter(this, void 0, void 0, function* () {
         const dbEntity = yield getByIdPrivate(req, res);
+        console.log(dbEntity);
         if (dbEntity) {
             service.remove(req);
         }
@@ -146,3 +147,4 @@ module.exports = {
     getByName,
     getById
 };
+//# sourceMappingURL=categorycontroller.js.map

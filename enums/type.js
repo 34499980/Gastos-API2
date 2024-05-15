@@ -5,4 +5,5 @@ var Type;
 (function (Type) {
     Type["input"] = "1";
     Type["buy"] = "2";
-})(Type = exports.Type || (exports.Type = {}));
+})(Type || (exports.Type = Type = {}));
+//# sourceMappingURL=type.js.map

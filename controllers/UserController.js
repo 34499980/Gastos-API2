@@ -146,3 +146,4 @@ module.exports = {
     getByName,
     getById
 };
+//# sourceMappingURL=usercontroller.js.map

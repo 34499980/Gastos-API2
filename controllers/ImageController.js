@@ -68,3 +68,4 @@ module.exports = {
     add,
     edit
 };
+//# sourceMappingURL=imagecontroller.js.map

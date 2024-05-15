@@ -121,3 +121,4 @@ module.exports = {
     getById,
     getMinorMonth
 };
+//# sourceMappingURL=MovementService.js.map

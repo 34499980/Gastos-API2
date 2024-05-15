@@ -63,3 +63,4 @@ module.exports = {
     getImages,
     getTypes
 };
+//# sourceMappingURL=datasourcecontroller.js.map

@@ -30,3 +30,4 @@ module.exports = {
     getNowWithHours,
     subtractMonths
 };
+//# sourceMappingURL=Time.js.map

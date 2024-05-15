@@ -343,3 +343,4 @@ exports.AddMovement = AddMovement;
 module.exports = {
     AddMovement
 };
+//# sourceMappingURL=testcontroller.js.map

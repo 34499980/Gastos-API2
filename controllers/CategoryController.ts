@@ -58,9 +58,10 @@ export async function edit(req, res){
    
  }
  export async function remove(req, res){
-    const dbEntity = await getByIdPrivate(req, res)   
+    const dbEntity = await getByIdPrivate(req, res)      
         if(dbEntity){
             service.remove(req);
+           
         }
         res.status(200).send({
             menssage: 'Se elimino la categoria: '+ dbEntity.name

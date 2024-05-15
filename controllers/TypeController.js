@@ -114,3 +114,4 @@ module.exports = {
     getAll,
     getById
 };
+//# sourceMappingURL=typecontroller.js.map

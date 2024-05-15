@@ -160,3 +160,4 @@ module.exports = {
     getById,
     getByMonth
 };
+//# sourceMappingURL=totalcontroller.js.map

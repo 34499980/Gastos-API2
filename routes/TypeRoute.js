@@ -31,7 +31,7 @@ const express_1 = __importDefault(require("express"));
 const app = (0, express_1.default)();
 const router = express_1.default.Router();
 // Cargamos el controlador
-const Controller = __importStar(require("../controllers/TypeController"));
+const Controller = __importStar(require("../controllers/typecontroller"));
 // Llamamos al router
 // Creamos una ruta de tipo GET para el método de pruebas
 router.post('/add', Controller.add);
@@ -42,3 +42,4 @@ router.get('/getById', Controller.getById);
 app.use(router);
 // Exportamos la configuración
 module.exports = router;
+//# sourceMappingURL=typeroute.js.map

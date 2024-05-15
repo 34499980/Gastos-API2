@@ -81,8 +81,8 @@ function add(req, res) {
 }
 exports.add = add;
 function edit(req, res) {
-    var _a, _b;
     return __awaiter(this, void 0, void 0, function* () {
+        var _a, _b;
         const dbEntity = yield getById(req, res);
         if (dbEntity != undefined) {
             const newEntity = {
@@ -179,3 +179,4 @@ module.exports = {
     getByMonth,
     getById
 };
+//# sourceMappingURL=movementcontroller.js.map

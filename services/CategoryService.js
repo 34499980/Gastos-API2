@@ -107,3 +107,4 @@ module.exports = {
     getByName,
     getById
 };
+//# sourceMappingURL=CategoryService.js.map

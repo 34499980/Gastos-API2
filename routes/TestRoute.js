@@ -31,10 +31,11 @@ const express_1 = __importDefault(require("express"));
 const app = (0, express_1.default)();
 const router = express_1.default.Router();
 // Cargamos el controlador
-const Controller = __importStar(require("../controllers/TestController"));
+const Controller = __importStar(require("../controllers/testcontroller"));
 // Llamamos al router
 // Creamos una ruta de tipo GET para el método de pruebas
 router.get('/AddMovement', Controller.AddMovement);
 app.use(router);
 // Exportamos la configuración
 module.exports = router;
+//# sourceMappingURL=testroute.js.map

@@ -97,3 +97,4 @@ module.exports = {
     getAll,
     getAllWithMovement
 };
+//# sourceMappingURL=duecontroller.js.map
