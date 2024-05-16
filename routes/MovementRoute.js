@@ -36,7 +36,7 @@ const Controller = __importStar(require("../controllers/movementcontroller"));
 // Creamos una ruta de tipo GET para el método de pruebas
 router.post('/add', Controller.add);
 router.put('/edit', Controller.edit);
-router.delete('/remove', Controller.remove);
+router.get('/remove', Controller.remove);
 router.get('/getAllYears', Controller.getAllYears);
 router.get('/getByMonth', Controller.getByMonth);
 router.get('/getById', Controller.getById);
