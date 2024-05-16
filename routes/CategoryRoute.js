@@ -36,6 +36,7 @@ const Controller = __importStar(require("../controllers/categorycontroller"));
 // Creamos una ruta de tipo GET para el método de pruebas
 router.post('/add', Controller.add);
 router.put('/edit', Controller.edit);
+router.delete('/remove', Controller.remove);
 router.get('/remove', Controller.remove);
 router.get('/getAll', Controller.getAll);
 router.get('/getByName', Controller.getByName);
