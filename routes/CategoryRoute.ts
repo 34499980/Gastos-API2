@@ -14,7 +14,7 @@ import * as Controller from '../controllers/categorycontroller';
 router.post('/add', Controller.add);
 router.put('/edit', Controller.edit);
 router.delete('/remove', Controller.remove);
-router.get('/remove', Controller.remove);
+router.get('/removeGet', Controller.remove);
 router.get('/getAll', Controller.getAll);
 router.get('/getByName', Controller.getByName);
 router.get('/getById', Controller.getById);
