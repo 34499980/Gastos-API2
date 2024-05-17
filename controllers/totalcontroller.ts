@@ -116,7 +116,7 @@ export async function getById(req, res){
  export async function getByMonth(req, res){
     const date = new Date();
     let result: Boolean = false;
-    let entity = await service.getByMonth({month: date.getMonth(), year: date.getFullYear()})   
+    let entity = await service.getByMonth({month: date.getMonth()-1, year: date.getFullYear()})   
     if(entity) result = true;
     res.status(StatusCodes.ACCEPTED).json(result);
  }
