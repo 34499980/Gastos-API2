@@ -24,15 +24,15 @@ var image_routes = require('./routes/imageroute');
 //app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: false }));
 // Cargamos las rutas
-app.use('/api/Category', category_routes);
-app.use('/api/User', user_routes);
-app.use('/api/Movement', movement_routes);
-app.use('/api/Type', type_routes);
-app.use('/api/Due', due_routes);
-app.use('/api/Test', test_routes);
-app.use('/api/Totals', total_routes);
-app.use('/api/DataSource', dataSource_routes);
-app.use('/api/Image', image_routes);
+app.use('/api/category', category_routes);
+app.use('/api/user', user_routes);
+app.use('/api/movement', movement_routes);
+app.use('/api/type', type_routes);
+app.use('/api/due', due_routes);
+app.use('/api/test', test_routes);
+app.use('/api/totals', total_routes);
+app.use('/api/dataSource', dataSource_routes);
+app.use('/api/image', image_routes);
 // iniciamos nuestro servidor
 app.listen(port);
 console.log('API escuchando en el puerto ' + port);
