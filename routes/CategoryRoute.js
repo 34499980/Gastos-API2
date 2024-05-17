@@ -37,7 +37,7 @@ const Controller = __importStar(require("../controllers/categorycontroller"));
 router.post('/add', Controller.add);
 router.put('/edit', Controller.edit);
 router.delete('/remove', Controller.remove);
-router.get('/removeGet', Controller.remove);
+router.get('/removeget', Controller.remove);
 router.get('/getAll', Controller.getAll);
 router.get('/getByName', Controller.getByName);
 router.get('/getById', Controller.getById);
