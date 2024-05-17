@@ -173,9 +173,15 @@ function getByMonth(req, res) {
 exports.getByMonth = getByMonth;
 function getById(req, res) {
     return __awaiter(this, void 0, void 0, function* () {
-        const id = { key: req.body.key };
-        const entity = yield service.getById(id);
-        res.status(http_status_codes_1.StatusCodes.ACCEPTED).json(entity);
+        let key = {};
+        if (req.body.month == undefined) {
+            key = req.query.key;
+        }
+        else {
+            key = req.body.key;
+        }
+        const entity = yield service.getById(key);
+        return entity;
     });
 }
 exports.getById = getById;

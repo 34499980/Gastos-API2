@@ -142,9 +142,7 @@ function getByMonth(req, res) {
     return __awaiter(this, void 0, void 0, function* () {
         const date = new Date();
         let result = false;
-        let entity = yield service.getByMonth({ month: date.getMonth() + 1, year: date.getFullYear() });
-        console.log(entity);
-        console.log(date.getMonth() + 1);
+        let entity = yield service.getByMonth({ month: date.getMonth() - 1, year: date.getFullYear() });
         if (entity)
             result = true;
         res.status(http_status_codes_1.StatusCodes.ACCEPTED).json(result);

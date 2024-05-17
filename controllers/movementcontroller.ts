@@ -50,8 +50,9 @@ export async function add(req, res){
     });
 }    
 export async function edit(req, res){
-    const dbEntity = await getById(req, res)   
    
+    const dbEntity = await getById(req, res)   
+    
     if(dbEntity != undefined){
         const newEntity: Movement = {
             key: req.body.key,
@@ -135,9 +136,15 @@ export async function getByMonth(req, res){
    
 }
 export async function getById(req, res){
-   const id = {key: req.body.key} 
-   const entity = await service.getById(id);
-   res.status(StatusCodes.ACCEPTED).json(entity);
+    let key = {};   
+    if(req.body.month == undefined){
+        key =  req.query.key;
+    } else {
+        key = req.body.key;
+    }
+   
+   const entity = await service.getById(key);
+   return entity;
 }
  
 module.exports = {
