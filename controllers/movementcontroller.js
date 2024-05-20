@@ -86,18 +86,18 @@ function edit(req, res) {
         const dbEntity = yield getById(req, res);
         if (dbEntity != undefined) {
             const newEntity = {
-                key: req.body.key,
+                key: dbEntity.key,
                 description: req.body.description,
                 amount: req.body.amount,
                 typeKey: req.body.typeKey,
                 categoryKey: req.body.categoryKey,
-                year: req.body.year,
-                month: req.body.month,
-                dueKey: req.body.dueKey,
-                createdDate: req.body.createdDate,
+                year: dbEntity.year,
+                month: dbEntity.month,
+                dueKey: dbEntity.dueKey,
+                createdDate: dbEntity.createdDate,
                 modifiedDate: helper.getNowWithHours(),
-                createdBy: req.body.createdBy,
-                dueBool: req.body.dueBool
+                createdBy: dbEntity.createdBy,
+                dueBool: dbEntity.dueBool
             };
             if (newEntity.dueBool == true) {
                 let due = yield duesService.getByMovementId(newEntity.key);

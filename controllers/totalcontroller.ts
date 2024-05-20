@@ -34,7 +34,7 @@ export async function processTotals(req, res){
             buy: buy,
             balance: input - buy,
             year: date.year,
-            month: date.month+1,
+            month: date.month,
             key: '',
             createdDate: helper.getNowWithHours()        
         }

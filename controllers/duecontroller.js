@@ -41,32 +41,34 @@ const res = require('express/lib/response');
 function processByMonth(req, res) {
     return __awaiter(this, void 0, void 0, function* () {
         const list = yield service.getAll();
-        const listToUpdate = list.filter(x => x.actualCount != x.countDues);
-        const listToRemove = list.filter(x => x.actualCount == x.countDues);
-        for (const element of listToRemove) {
-            yield service.remove(element);
-        }
-        for (const element of listToUpdate) {
-            element.actualCount++;
-            const id = { key: element.movementKey };
-            const movement = yield movementService.getById(id);
-            const newMovement = {
-                key: '',
-                description: movement.description,
-                amount: movement.amount,
-                typeKey: movement.typeKey,
-                categoryKey: movement.categoryKey,
-                year: new Date().getFullYear(),
-                month: new Date().getMonth() + 1,
-                dueKey: movement.dueKey,
-                createdDate: helper.getNowWithHours(),
-                modifiedDate: '',
-                createdBy: 'System',
-                dueBool: true
-            };
-            newMovement.key = yield movementService.add(newMovement);
-            yield movementService.edit(newMovement);
-            yield service.edit(element);
+        if (list.length > 0) {
+            const listToUpdate = list.filter(x => x.actualCount != x.countDues);
+            const listToRemove = list.filter(x => x.actualCount == x.countDues);
+            for (const element of listToRemove) {
+                yield service.remove(element);
+            }
+            for (const element of listToUpdate) {
+                element.actualCount++;
+                // const id = {key: };
+                const movement = yield movementService.getById(element.movementKey);
+                const newMovement = {
+                    key: '',
+                    description: movement.description,
+                    amount: movement.amount,
+                    typeKey: movement.typeKey,
+                    categoryKey: movement.categoryKey,
+                    year: new Date().getFullYear(),
+                    month: new Date().getMonth() + 1,
+                    dueKey: movement.dueKey,
+                    createdDate: helper.getNowWithHours(),
+                    modifiedDate: '',
+                    createdBy: 'System',
+                    dueBool: true
+                };
+                newMovement.key = yield movementService.add(newMovement);
+                yield movementService.edit(newMovement);
+                yield service.edit(element);
+            }
         }
         res.status(http_status_codes_1.StatusCodes.ACCEPTED).json({ status: true });
     });

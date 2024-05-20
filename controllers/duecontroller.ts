@@ -8,34 +8,37 @@ const res = require('express/lib/response');
 
 export async function processByMonth(req, res){
    const list = await service.getAll();
-   const listToUpdate = list.filter(x => x.actualCount != x.countDues);
-   const listToRemove = list.filter(x => x.actualCount == x.countDues);
-   for(const element of listToRemove){
-       await service.remove(element)
-   }
-   for(const element of listToUpdate){
-    element.actualCount++;
-    const id = {key: element.movementKey};
-    const movement = await movementService.getById(id);
-    const newMovement: Movement = {
-        key: '',
-        description: movement.description,
-        amount: movement.amount,
-        typeKey: movement.typeKey,
-        categoryKey: movement.categoryKey,
-        year: new Date().getFullYear(),
-        month: new Date().getMonth()+1,
-        dueKey: movement.dueKey,
-        createdDate: helper.getNowWithHours(),
-        modifiedDate: '',
-        createdBy: 'System',
-        dueBool: true 
+   if(list.length > 0) {
+    const listToUpdate = list.filter(x => x.actualCount != x.countDues);
+    const listToRemove = list.filter(x => x.actualCount == x.countDues);
+    for(const element of listToRemove){
+        await service.remove(element)
     }
-    newMovement.key = await movementService.add(newMovement);
-    await movementService.edit(newMovement);
-
-    await service.edit(element);
+    for(const element of listToUpdate){
+     element.actualCount++;
+    // const id = {key: };
+     const movement = await movementService.getById(element.movementKey);
+     const newMovement: Movement = {
+         key: '',
+         description: movement.description,
+         amount: movement.amount,
+         typeKey: movement.typeKey,
+         categoryKey: movement.categoryKey,
+         year: new Date().getFullYear(),
+         month: new Date().getMonth()+1,
+         dueKey: movement.dueKey,
+         createdDate: helper.getNowWithHours(),
+         modifiedDate: '',
+         createdBy: 'System',
+         dueBool: true 
+     }
+     newMovement.key = await movementService.add(newMovement);
+     await movementService.edit(newMovement);
+ 
+     await service.edit(element);
+    }
    }
+
    
    res.status(StatusCodes.ACCEPTED).json({status: true});
 }
