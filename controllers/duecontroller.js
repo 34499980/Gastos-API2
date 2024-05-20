@@ -83,14 +83,18 @@ function getAll(req, res) {
 exports.getAll = getAll;
 function getAllWithMovement(req, res) {
     return __awaiter(this, void 0, void 0, function* () {
+        let listResult = [];
         let list = yield service.getAllWithMovement();
+        console.log(list);
         for (const element of list) {
             if (element.dueKey != '') {
                 element.due = yield service.getByMovementId(element.dueKey);
-                console.log(element.due);
+                if (!listResult.find(x => x.dueKey == element.dueKey)) {
+                    listResult.push(element);
+                }
             }
         }
-        res.status(http_status_codes_1.StatusCodes.ACCEPTED).json(list.filter(x => x.due != undefined));
+        res.status(http_status_codes_1.StatusCodes.ACCEPTED).json(listResult.filter(x => x.due != undefined));
     });
 }
 exports.getAllWithMovement = getAllWithMovement;

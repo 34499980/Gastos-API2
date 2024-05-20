@@ -47,14 +47,18 @@ export async function getAll(req, res){
     res.status(StatusCodes.ACCEPTED).json(list);
  }
  export async function getAllWithMovement(req, res){
-    let list = await service.getAllWithMovement()
+    let listResult: Movement[] = [];
+    let list = await service.getAllWithMovement();
+    console.log(list)
     for(const element of list){
         if(element.dueKey != ''){
             element.due = await service.getByMovementId(element.dueKey);
-            console.log(element.due);
+            if(!listResult.find(x => x.dueKey == element.dueKey)){
+                listResult.push(element);
+            }
         }       
     }
-    res.status(StatusCodes.ACCEPTED).json(list.filter(x => x.due != undefined));
+    res.status(StatusCodes.ACCEPTED).json(listResult.filter(x => x.due != undefined));
  }
 module.exports = {
     processByMonth,
