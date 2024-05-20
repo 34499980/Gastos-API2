@@ -85,11 +85,12 @@ function getAllWithMovement(req, res) {
     return __awaiter(this, void 0, void 0, function* () {
         let listResult = [];
         let list = yield service.getAllWithMovement();
-        console.log(list);
         for (const element of list) {
             if (element.dueKey != '') {
                 element.due = yield service.getByMovementId(element.dueKey);
-                if (!listResult.find(x => x.dueKey == element.dueKey)) {
+                const exist = listResult.find(x => x.dueKey == element.dueKey);
+                console.log(exist);
+                if (!exist) {
                     listResult.push(element);
                 }
             }

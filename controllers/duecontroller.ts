@@ -48,12 +48,13 @@ export async function getAll(req, res){
  }
  export async function getAllWithMovement(req, res){
     let listResult: Movement[] = [];
-    let list = await service.getAllWithMovement();
-    console.log(list)
+    let list = await service.getAllWithMovement();  
     for(const element of list){
         if(element.dueKey != ''){
-            element.due = await service.getByMovementId(element.dueKey);
-            if(!listResult.find(x => x.dueKey == element.dueKey)){
+            element.due = await service.getByMovementId(element.dueKey); 
+            const exist = listResult.find(x => x.dueKey == element.dueKey);
+            console.log(exist)          
+            if(!exist){
                 listResult.push(element);
             }
         }       
