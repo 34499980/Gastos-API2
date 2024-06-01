@@ -89,7 +89,6 @@ function getAllWithMovement(req, res) {
             if (element.dueKey != '') {
                 element.due = yield service.getByMovementId(element.dueKey);
                 const exist = listResult.find(x => x.dueKey == element.dueKey);
-                console.log(exist);
                 if (!exist) {
                     listResult.push(element);
                 }

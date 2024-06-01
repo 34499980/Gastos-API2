@@ -14,7 +14,7 @@ export async function processTotals(req, res){
     let monthReduce = 1;
     
         const date = helper.subtractMonths(monthReduce);
-        console.log(date)
+      
         monthReduce++;
         
         const movementEntities = await movementService.getByMonth(date);
@@ -73,8 +73,7 @@ export async function removeByMonths(req, res){
        
         if(item.dueKey != null) {
             const due = dueEntities.find(x => x == item.dueKey);
-            console.log(dueEntities);
-            console.log(due);
+         
             if(due == undefined) {
                 await movementService.remove(item);
             }
@@ -88,18 +87,18 @@ export async function removeByMonths(req, res){
  export async function removeOldDues(req, res){
     const dueEntities = (await dueService.getAll()).map(x => x.key); 
     const date = helper.subtractMonths(3);
-  
+ 
     const movementEntities = (await movementService.getMinorMonth(date)).filter(x => x.month < date.month);   
-    console.log(movementEntities)
+   
     for(const item of movementEntities){
        
         if(item.dueKey != null && item.dueKey != '') {
             const due = dueEntities.find(x => x == item.dueKey);
             if(due == undefined) {
-                await movementService.remove(item);
+                await movementService.remove(item.key);
             }
         } else {
-            await movementService.remove(item);
+            await movementService.remove(item.key);
         }
         
     }

@@ -129,7 +129,6 @@ function remove(req, res) {
         else {
             key = req.body.key;
         }
-        console.log(key);
         const dbEntity = yield service.getById(key);
         if (dbEntity.dueBool) {
             const due = yield duesService.getByMovementId(dbEntity.key);

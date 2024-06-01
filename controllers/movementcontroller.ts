@@ -95,7 +95,7 @@ export async function edit(req, res){
     } else {
         key = req.body.key;
     }
-    console.log(key);
+   
     const dbEntity = await service.getById(key);
     if(dbEntity.dueBool){
        const due = await duesService.getByMovementId(dbEntity.key);

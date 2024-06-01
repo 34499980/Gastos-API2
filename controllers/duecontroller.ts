@@ -53,7 +53,7 @@ export async function getAll(req, res){
         if(element.dueKey != ''){
             element.due = await service.getByMovementId(element.dueKey); 
             const exist = listResult.find(x => x.dueKey == element.dueKey);
-            console.log(exist)          
+                
             if(!exist){
                 listResult.push(element);
             }

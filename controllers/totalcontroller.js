@@ -44,7 +44,6 @@ function processTotals(req, res) {
     return __awaiter(this, void 0, void 0, function* () {
         let monthReduce = 1;
         const date = helper.subtractMonths(monthReduce);
-        console.log(date);
         monthReduce++;
         const movementEntities = yield movementService.getByMonth(date);
         const inputArray = movementEntities.filter(x => x.typeKey == type_1.Type.input);
@@ -89,8 +88,6 @@ function removeByMonths(req, res) {
         for (const item of movementEntities) {
             if (item.dueKey != null) {
                 const due = dueEntities.find(x => x == item.dueKey);
-                console.log(dueEntities);
-                console.log(due);
                 if (due == undefined) {
                     yield movementService.remove(item);
                 }
@@ -108,16 +105,15 @@ function removeOldDues(req, res) {
         const dueEntities = (yield dueService.getAll()).map(x => x.key);
         const date = helper.subtractMonths(3);
         const movementEntities = (yield movementService.getMinorMonth(date)).filter(x => x.month < date.month);
-        console.log(movementEntities);
         for (const item of movementEntities) {
             if (item.dueKey != null && item.dueKey != '') {
                 const due = dueEntities.find(x => x == item.dueKey);
                 if (due == undefined) {
-                    yield movementService.remove(item);
+                    yield movementService.remove(item.key);
                 }
             }
             else {
-                yield movementService.remove(item);
+                yield movementService.remove(item.key);
             }
         }
         res.status(http_status_codes_1.StatusCodes.ACCEPTED).json({ status: true });
