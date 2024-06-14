@@ -49,7 +49,7 @@ export async function getAll(req, res){
  export async function getAllWithMovement(req, res){
     let listResult: Movement[] = [];
     let list = await service.getAllWithMovement();  
-    list = list.sort((a, b) => new Date(a.createdDate).getDate() - new Date(b.createdDate).getDate());
+    list = list.sort((a, b) => new Date(b.createdDate).getDate() - new Date(a.createdDate).getDate());
 
     for(const element of list){
         if(element.dueKey != ''){

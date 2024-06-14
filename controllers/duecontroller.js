@@ -85,6 +85,7 @@ function getAllWithMovement(req, res) {
     return __awaiter(this, void 0, void 0, function* () {
         let listResult = [];
         let list = yield service.getAllWithMovement();
+        list = list.sort((a, b) => new Date(b.createdDate).getDate() - new Date(a.createdDate).getDate());
         for (const element of list) {
             if (element.dueKey != '') {
                 element.due = yield service.getByMovementId(element.dueKey);
