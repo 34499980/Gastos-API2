@@ -4,7 +4,7 @@ var app = express();
 const cors = require('cors');
 app.use(function (req, res, next) {
    // res.header("origin", '*');
-    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Origin", "http://localhost:8100");
     res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT,DELETE");
     res.header("Access-Control-Allow-Credentials', true");
     next();
