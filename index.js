@@ -9,6 +9,7 @@ app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Credentials', true");
     next();
 });
+app.use(cors());
 app.use(express.json());
 var port = process.env.PORT || 8080; // establecemos nuestro puerto
 var category_routes = require('./routes/categoryroute');
