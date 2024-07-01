@@ -2,14 +2,32 @@ var express = require('express'); //llamamos a Express
 var path = require('path');
 var app = express();
 const cors = require('cors');
+const allowedOrigins = [
+    'capacitor://localhost',
+    'ionic://localhost',
+    'http://localhost',
+    'http://localhost:8080',
+    'http://localhost:8100',
+    'http://localhost:4200',
+  ];
+  const corsOptions = {
+    origin: (origin, callback) => {
+      if (allowedOrigins.includes(origin) || !origin) {
+        callback(null, true);
+      } else {
+        callback(new Error('Origin not allowed by CORS'));
+      }
+    },
+  };
+app.options('*', cors(corsOptions)); 
 app.use(function (req, res, next) {
    // res.header("origin", '*');
-    res.header("Access-Control-Allow-Origin", "http://localhost");
+    res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT,DELETE");
     res.header("Access-Control-Allow-Credentials', true");
     next();
 });
-app.use(cors());
+
 app.use(express.json());
 var port = process.env.PORT || 8080; // establecemos nuestro puerto
 var category_routes = require('./routes/categoryroute');
@@ -25,15 +43,15 @@ var image_routes = require('./routes/imageroute');
 //app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: false }));
 // Cargamos las rutas
-app.use('/api/category', category_routes);
-app.use('/api/user', user_routes);
-app.use('/api/movement', movement_routes);
-app.use('/api/type', type_routes);
-app.use('/api/due', due_routes);
-app.use('/api/test', test_routes);
-app.use('/api/totals', total_routes);
-app.use('/api/dataSource', dataSource_routes);
-app.use('/api/image', image_routes);
+app.use('/api/category',cors(corsOptions), category_routes);
+app.use('/api/user',cors(corsOptions), user_routes);
+app.use('/api/movement',cors(corsOptions), movement_routes);
+app.use('/api/type',cors(corsOptions), type_routes);
+app.use('/api/due',cors(corsOptions), due_routes);
+app.use('/api/test',cors(corsOptions), test_routes);
+app.use('/api/totals',cors(corsOptions), total_routes);
+app.use('/api/dataSource',cors(corsOptions), dataSource_routes);
+app.use('/api/image',cors(corsOptions), image_routes);
 // iniciamos nuestro servidor
 app.listen(port);
 console.log('API escuchando en el puerto ' + port);
