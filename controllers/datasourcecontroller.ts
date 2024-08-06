@@ -6,7 +6,9 @@ import * as service from  '../services/datasourceservice';
 
 export async function getCategories(req, res){
     let list = await service.getCategories()
-    res.status(StatusCodes.ACCEPTED).json(list);
+    const listResult = list.sort((a,b) => b.description.localeCompare(a.description));
+
+    res.status(StatusCodes.ACCEPTED).json(listResult);
  }
  export async function getImages(req, res){
     let list = await service.getImages()
