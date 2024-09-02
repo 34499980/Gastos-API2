@@ -27,8 +27,8 @@ export async function processTotals(req, res){
         const buyArray = movementEntities.filter(x => x.typeKey == Type.buy)
                                       // .map(q => q.amount);
                                  
-        const input = inputArray.reduce((result, value) => result + value.amount, 0);
-        const buy = buyArray.reduce((result, value) => result + value.amount, 0);
+        const input = parseInt(inputArray.reduce((result, value) => result + value.amount, 0).toString());
+        const buy = parseInt(buyArray.reduce((result, value) => result + value.amount, 0).toString());
         const total: Total = {
             input: input,
             buy: buy,
@@ -43,9 +43,11 @@ export async function processTotals(req, res){
             totalEntity.input = total.input;
             totalEntity.buy = total.buy;
             totalEntity.balance = totalEntity.input - totalEntity.buy;
+          
             await service.edit(totalEntity);   
         } else {
             total.key = await service.add(total);
+           
             await service.edit(total);   
         }
        
