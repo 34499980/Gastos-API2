@@ -27,8 +27,8 @@ export async function processTotals(req, res){
         const buyArray = movementEntities.filter(x => x.typeKey == Type.buy)
                                       // .map(q => q.amount);
                                  
-        const input = parseInt(inputArray.reduce((result, value) => result + value.amount, 0).toString());
-        const buy = parseInt(buyArray.reduce((result, value) => result + value.amount, 0).toString());
+        const input = parseInt(inputArray.reduce((result, value) => result + parseInt(value.amount.toString()), 0).toString());
+        const buy = parseInt(buyArray.reduce((result, value) => result + parseInt(value.amount.toString()), 0).toString());
         const total: Total = {
             input: input,
             buy: buy,
@@ -38,6 +38,7 @@ export async function processTotals(req, res){
             key: '',
             createdDate: helper.getNowWithHours()        
         }
+      
         let totalEntity = await service.getByMonth(date)
         if(totalEntity != null || totalEntity != undefined) {
             totalEntity.input = total.input;
@@ -50,19 +51,12 @@ export async function processTotals(req, res){
            
             await service.edit(total);   
         }
-       
-        
-       // let movementToRemoveAll = (await movementService.getAllYears()).filter(({key}) => !dueEntities.includes(key)).filter(x => x.month < date.month);
-      //  const movementToRemove =  movementEntities.filter(({key}) => !dueEntities.includes(key));
-      //  movementToRemoveAll = [...movementToRemoveAll, ...movementToRemove]
      
-        //console.log(movementToRemoveAll)
-       
+        res.status(StatusCodes.ACCEPTED).json({status: true});
     
     
     
-    
-   res.status(StatusCodes.ACCEPTED).json({status: true});
+  
 }  
   
 export async function removeByMonths(req, res){

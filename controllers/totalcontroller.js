@@ -50,8 +50,8 @@ function processTotals(req, res) {
         //    .map(q => q.amount);
         const buyArray = movementEntities.filter(x => x.typeKey == type_1.Type.buy);
         // .map(q => q.amount);
-        const input = parseInt(inputArray.reduce((result, value) => result + value.amount, 0).toString());
-        const buy = parseInt(buyArray.reduce((result, value) => result + value.amount, 0).toString());
+        const input = parseInt(inputArray.reduce((result, value) => result + parseInt(value.amount.toString()), 0).toString());
+        const buy = parseInt(buyArray.reduce((result, value) => result + parseInt(value.amount.toString()), 0).toString());
         const total = {
             input: input,
             buy: buy,
@@ -72,10 +72,6 @@ function processTotals(req, res) {
             total.key = yield service.add(total);
             yield service.edit(total);
         }
-        // let movementToRemoveAll = (await movementService.getAllYears()).filter(({key}) => !dueEntities.includes(key)).filter(x => x.month < date.month);
-        //  const movementToRemove =  movementEntities.filter(({key}) => !dueEntities.includes(key));
-        //  movementToRemoveAll = [...movementToRemoveAll, ...movementToRemove]
-        //console.log(movementToRemoveAll)
         res.status(http_status_codes_1.StatusCodes.ACCEPTED).json({ status: true });
     });
 }
