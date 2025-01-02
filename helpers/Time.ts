@@ -18,6 +18,10 @@ export function subtractMonths(month: number){
         }
         index--;      
     }    
+    if(index == 0){
+        index = 12;
+        year = year -1;
+    }
     return {month: index, year: year}
 
 }
